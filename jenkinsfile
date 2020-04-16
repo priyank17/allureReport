@@ -2,14 +2,14 @@ pipeline{
 	agent any
 	stages{
 		stage('build'){
-		step{
-				sh 'mvn clean test'
+			steps{
+					sh 'mvn clean test'
+				}
 			}
-		}
 	}
 	post{
 		always{
-			allure 'allure-results'
+			allure results: [[path: 'allure-results']]
 			deleteDir() /* clean up our workspace */
 		}	
 	}	
