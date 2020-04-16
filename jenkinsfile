@@ -9,8 +9,7 @@ pipeline{
 	}
 	post{
 		always{
-			allure results: [[path: 'target/allure-results']]
-			deleteDir() /* clean up our workspace */
+			allure results: [[path: 'target/allure-results']]			
 		}	
 	}	
 }
